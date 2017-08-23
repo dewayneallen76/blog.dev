@@ -8,7 +8,7 @@
   <div class="container">
     <h2>You entered: {{ $word }}</h2>
     <h2>Uppercase: {{ $upperCaseWord }}</h2>
-
+    <a href="{{ action('HomeController@showWelcome') }}">Home</a>
   </div>
 
 @stop

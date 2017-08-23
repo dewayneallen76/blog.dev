@@ -11,20 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@showWelcome');
 
 Route::get('/sayhello/{name}', function ($name) {
   return "Hey there, $name!";
 });
 
 // Create a route at the path /uppercase that takes a parameter that is a word and returns a string that is the word in all caps.
-Route::get('/uppercase/{word}', function($word) {
-  $data['word'] = $word;
-  $data['upperCaseWord'] = strtoupper($word);
-  return view('uppercase', $data);
-});
+Route::get('/uppercase/{word}', 'HomeController@upperCase');
 
 // Create a route at the path /increment that takes a parameter that is a number and returns the number plus one.
 Route::get('/increment/{number?}', function ($number = 1) {
