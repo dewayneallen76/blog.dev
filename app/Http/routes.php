@@ -45,7 +45,9 @@ Route::get('/rolldice/{guess}', function ($guess) {
 
   $dice = rand(1,6);
 
-  if($guess == $dice){
+  if(!is_numeric($guess)) {
+    $message = "Please enter a valid number!";
+  } else if($guess == $dice){
     $message = "You guessed correctly! Well done!";
   } else {
     $message = "Try again!";
