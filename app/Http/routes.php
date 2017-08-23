@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/sayhello/{name}', function ($name) {
+  return "Hey there, $name!";
+});
