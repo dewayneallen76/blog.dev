@@ -41,8 +41,19 @@ Route::get('/add/{a}/{b}', function ($a, $b) {
 // Create a route that responds to a GET request on the path /rolldice.
 // Within the route, return a random number between 1 and 6.
 // Add a view named roll-dice.php. Instead of just returning the random number, show the view and have it display the random number.
-Route::get('/rolldice', function () {
+Route::get('/rolldice/{guess}', function ($guess) {
+
   $dice = rand(1,6);
+
+  if($guess == $dice){
+    $message = "You guessed correctly! Well done!";
+  } else {
+    $message = "Try again!";
+  }
+
+  $data['guess'] = $guess;
+  $data['message'] = $message;
   $data['dice'] = $dice;
-  return view('rolldice')->with($data);
+
+  return view('rolldice', $data);
 });
