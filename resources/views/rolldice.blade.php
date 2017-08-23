@@ -15,7 +15,7 @@
     <![endif]-->
   </head>
   <body>
-    <h1>Dice Roll: <?php echo $dice; ?></h1>
+    <h1>Random Roll: <?php echo $dice; ?></h1>
     <h1>Your guess: <?php echo $guess; ?></h1>
     <h1><?php echo $message; ?></h1>
 
