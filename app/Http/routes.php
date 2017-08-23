@@ -20,8 +20,10 @@ Route::get('/sayhello/{name}', function ($name) {
 });
 
 // Create a route at the path /uppercase that takes a parameter that is a word and returns a string that is the word in all caps.
-Route::get('/uppercase/{string}', function($string) {
-  return "Uppercased: " .strtoupper($string);
+Route::get('/uppercase/{word}', function($word) {
+  $data['word'] = $word;
+  $data['upperCaseWord'] = strtoupper($word);
+  return view('uppercase', $data);
 });
 
 // Create a route at the path /increment that takes a parameter that is a number and returns the number plus one.
