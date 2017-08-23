@@ -26,7 +26,11 @@ Route::get('/uppercase/{string}', function($string) {
 
 // Create a route at the path /increment that takes a parameter that is a number and returns the number plus one.
 Route::get('/increment/{number?}', function ($number = 1) {
-  return $number + 1;
+  if(is_numeric($number)) {
+    return $number + 1;
+  } else {
+    return 1;
+  }
 });
 
 // Create a route at the path /add that takes two parametes that are numbers and returns the sum of the numbers.
