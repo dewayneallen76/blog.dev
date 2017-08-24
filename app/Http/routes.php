@@ -13,9 +13,7 @@
 
 Route::get('/', 'HomeController@showWelcome');
 
-Route::get('/sayhello/{name}', function ($name) {
-  return "Hey there, $name!";
-});
+Route::get('/sayhello/{name}', 'HomeController@sayHello');
 
 // Create a route at the path /uppercase that takes a parameter that is a word and returns a string that is the word in all caps.
 Route::get('/uppercase/{word}', 'HomeController@upperCase');
@@ -24,9 +22,7 @@ Route::get('/uppercase/{word}', 'HomeController@upperCase');
 Route::get('/increment/{number?}', 'HomeController@increment');
 
 // Create a route at the path /add that takes two parameters that are numbers and returns the sum of the numbers.
-Route::get('/add/{a}/{b}', function ($a, $b) {
-  return $a + $b;
-});
+Route::get('/add/{a}/{b}', 'HomeController@add');
 
 // Create a route that responds to a GET request on the path /rolldice.
 // Within the route, return a random number between 1 and 6.

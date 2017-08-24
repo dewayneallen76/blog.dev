@@ -9,11 +9,21 @@ class HomeController extends Controller
     return view('welcome');
   }
 
+  public function sayHello($name)
+  {
+    return "Hey there, $name!";
+  }
+
   public function upperCase($word)
   {
     $data['word'] = $word;
     $data['upperCaseWord'] = strtoupper($word);
     return view('uppercase', $data);
+  }
+
+  public function add($a, $b)
+  {
+    return $a + $b;
   }
 
   public function increment($number)
@@ -48,5 +58,5 @@ class HomeController extends Controller
 
     return view('rolldice', $data);
   }
-  
+
 }
