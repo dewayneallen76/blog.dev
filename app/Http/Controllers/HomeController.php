@@ -35,15 +35,22 @@ class HomeController extends Controller
 
   public function increment($number)
   {
-    $message = '';
     if(is_numeric($number)) {
-      $numberPlusOne = $number + 1;
+      $number += 1;
     } else {
-      $message = "Enter a number";
+      $number = 1;
     }
-    $data['message'] = $message;
+
+    if($number > 5) {
+      return redirect()->action('HomeController@resetToZero');
+    }
     $data['number'] = $number;
-    $data['numberPlusOne'] = $numberPlusOne;
+    return view('increment', $data);
+  }
+
+  public function resetToZero()
+  {
+    $data['number'] = 0;
     return view('increment', $data);
   }
 
