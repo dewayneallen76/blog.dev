@@ -6,8 +6,7 @@
 
 @section('content')
 <div class="container">
-  <h2>Your number: {{ $number }}</h2>
-  <h2>Your number plus 1: {{ $numberPlusOne }}</h2>
-  <a href="{{ action('HomeController@showWelcome') }}">Home</a>
+  <h2>Your number incremented number: {{ $number }}</h2>
+  <a href="{{ action('HomeController@increment', array($number)) }}">Increase {{ $number }}</a>
 </div>
 @stop
