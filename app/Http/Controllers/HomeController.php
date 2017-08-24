@@ -21,6 +21,13 @@ class HomeController extends Controller
     return view('uppercase', $data);
   }
 
+  public function lowerCase($word)
+  {
+    $data['word'] = $word;
+    $data['lowerCaseWord'] = strtolower($word);
+    return view('lowercase', $data);
+  }
+
   public function add($a, $b)
   {
     return $a + $b;
