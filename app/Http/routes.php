@@ -20,6 +20,7 @@ Route::get('/uppercase/{word}', 'HomeController@upperCase');
 
 // Create a route at the path /increment that takes a parameter that is a number and returns the number plus one.
 Route::get('/increment/{number?}', 'HomeController@increment');
+Route::get('/zero', 'HomeController@resetToZero');
 
 // Create a route at the path /add that takes two parameters that are numbers and returns the sum of the numbers.
 Route::get('/add/{a}/{b}', 'HomeController@add');
