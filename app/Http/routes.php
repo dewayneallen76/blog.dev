@@ -27,3 +27,5 @@ Route::get('/add/{a}/{b}', 'HomeController@add');
 // Create a route that responds to a GET request on the path /rolldice.
 // Within the route, return a random number between 1 and 6.
 Route::get('/rolldice/{guess}', 'HomeController@rollDice');
+
+Route::get('/lowercase/{word}', 'HomeController@lowerCase');
