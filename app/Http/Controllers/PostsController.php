@@ -59,7 +59,7 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+    
     }
 
     /**
