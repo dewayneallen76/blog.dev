@@ -10,7 +10,16 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+// Posts routes
+Route::resource('posts', 'PostsController');
 
+// Users routes
+
+
+// Votes routes
+
+
+// Miscellaneous routes for exercises
 Route::get('/', 'HomeController@showWelcome');
 
 Route::get('/sayhello/{name}', 'HomeController@sayHello');
