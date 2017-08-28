@@ -37,7 +37,7 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-      dd($request->all());
+      return back()->withInput();
     }
 
     /**
@@ -59,7 +59,7 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-    
+      return view('/posts/edit');
     }
 
     /**
