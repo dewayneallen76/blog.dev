@@ -16,7 +16,12 @@
     <![endif]-->
   </head>
   <body>
-
+    @if (session()->has('successMessage'))
+      <div class="alert alert-success">{{ session('successMessage') }}</div>
+    @endif
+    @if (session()->has('errorMessage'))
+      <div class="alert alert-danger  ">{{ session('errorMessage') }}</div>
+    @endif
     @yield('content')
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

@@ -47,6 +47,8 @@ class PostsController extends Controller
       $post->content = $request->content;
       $post->save();
 
+      $request->session()->flash('successMessage', 'Post created successfully');
+
       return redirect()->action('PostsController@index');
     }
 
@@ -92,6 +94,8 @@ class PostsController extends Controller
 
       $post->save();
 
+      $request->session()->flash('successMessage', 'Post updated successfully.');
+
       return redirect()->action('PostsController@show', $post->id);
     }
 
@@ -105,6 +109,8 @@ class PostsController extends Controller
     {
       $post = \App\Models\Post::find($id);
       $post->delete();
+
+      $request->session()->flash('errorMessage', 'Post deleted');
 
       return redirect()->action('PostsController@index');
     }
