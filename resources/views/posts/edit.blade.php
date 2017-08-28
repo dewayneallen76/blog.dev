@@ -18,7 +18,7 @@
       <textarea type="textarea" rows="5" class="form-control" id="content" name="content" placeholder="{{ old('content') }}"></textarea>
       <br>
       <button class="btn btn-primary btn-success">Edit Post</button>
-      {!! method_field('PUT') !!}
+      {!! method_field('PUT') !!  }
     </form>
     <br>
     <form action="{{ action('PostsController@destroy', array(1)) }}" method="POST">
