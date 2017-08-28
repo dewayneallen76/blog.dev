@@ -19,12 +19,6 @@
       <br>
       <button class="btn btn-primary btn-success">Create Post</button>
     </form>
-    <br>
-    <form action="{{ action('PostsController@edit', array(1)) }}" method="GET">
-      {!! csrf_field() !!}
-      <button class="btn btn-primary btn-warning" name="button">Edit Post</button>
-      {!! method_field('PUT') !!}
-    </form>
   </div>
 </div>
 
