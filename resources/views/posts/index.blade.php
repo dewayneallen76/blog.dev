@@ -14,7 +14,7 @@
         <img class="card-img-top" src="http://fillmurray.com/318/180" alt="Card image cap">
         <div class="card-body">
           <h4 class="card-title">{{ $post->title}}</h4>
-          <p class="card-text" style="overflow:hidden;">{{ $post->created_at}}</p>
+          <p class="card-text">{{ $post->created_at->diffForHumans() }}</p>
           <a class="btn btn-primary" href="{{ action('PostsController@show', $post->id) }}">Read Post</a>
         </div>
       </div>
