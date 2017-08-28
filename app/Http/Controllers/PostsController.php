@@ -16,7 +16,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-      $data['posts'] =  \App\Models\Post::all();
+      $data['posts'] =  \App\Models\Post::paginate(6);
       return view('/posts/index', $data);
     }
 
