@@ -6,10 +6,15 @@
 
 @section('content')
 <div class="container">
-  @foreach($posts as $post)
-  <h1><a href="/posts/{{ $post->id }}">{{ $post->title }}</a></h1>
-  <h2>{{ $post->url }}</h2>
-  <p>{{ $post->content }}</p>
-  @endforeach
+  <h1>All Posts</h1>
+  <div class="row">
+    @foreach($posts as $post)
+    <div class="col">
+      <h1><a href="/posts/{{ $post->id }}">{{ $post->title }}</a></h1>
+      <h2>{{ $post->url }}</h2>
+      <p>{{ $post->content }}</p>
+    </div>
+    @endforeach
+  </div>
 </div>
 @stop
