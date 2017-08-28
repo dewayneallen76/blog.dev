@@ -69,7 +69,8 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-      return view('/posts/edit');
+      $data['post'] = \App\Models\Post::find($id);
+      return view('/posts/edit', $data);
     }
 
     /**
@@ -81,7 +82,15 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-      return "Update ran!";
+      $post = \App\Models\Post::find($id);
+      $post->title = $request->title;
+      $post->url = $request->url;
+      $post->content = $request->content;
+      $post->created_by = 1;
+
+      $post->save();
+
+      return redirect()->action('PostsController@show', $post->id);
     }
 
     /**
@@ -92,6 +101,9 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-      return "Deleted";
+      $post = \App\Models\Post::find($id);
+      $post->delete();
+      
+      return redirect()->action('PostsController@index');
     }
 }
