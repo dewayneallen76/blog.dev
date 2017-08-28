@@ -16,7 +16,8 @@ class PostsController extends Controller
      */
     public function index()
     {
-      return view('/posts/index');
+      $data['posts'] =  \App\Models\Post::all();
+      return view('/posts/index', $data);
     }
 
     /**
@@ -37,7 +38,14 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-      return back()->withInput();
+      $post = new \App\Models\Post();
+      $post->created_by = 1;
+      $post->title = $request->title;
+      $post->url = $request->url;
+      $post->content = $request->content;
+      $post->save();
+
+      return redirect()->action('PostsController@index');
     }
 
     /**
@@ -48,7 +56,9 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        //
+      $data['post'] = \App\Models\Post::find(1);
+
+      return view('posts/show', $data);
     }
 
     /**
@@ -71,7 +81,7 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-      return "Update ran!"; 
+      return "Update ran!";
     }
 
     /**

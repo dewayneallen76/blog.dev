@@ -6,6 +6,10 @@
 
 @section('content')
 <div class="container">
-  <h1>All posts will be seen here</h1>
+  @foreach($posts as $post)
+  <h1>{{ $post->title }}</h1>
+  <h2>{{ $post->url }}</h2>
+  <p>{{ $post->content }}</p>
+  @endforeach
 </div>
 @stop

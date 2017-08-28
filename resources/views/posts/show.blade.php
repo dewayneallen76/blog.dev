@@ -5,5 +5,9 @@
 @stop
 
 @section('content')
-  <h1>This is where an individual post will be shown</h1>
+  <div class="container">
+    <h1>{{ $post->title }}</h1>
+    <h2>{{ $post->url }}</h2>
+    <p>{{ $post->content }}</p>
+  </div>
 @stop
