@@ -21,7 +21,7 @@
       {!! method_field('PUT') !!  }
     </form>
     <br>
-    <form action="{{ action('PostsController@destroy', array(1)) }}" method="POST">
+    <form action="{{ action('PostsController@destroy') }}" method="POST">
       {!! csrf_field() !!}
       <button class="btn btn-primary btn-danger" name="button">Delete Post</button>
       {!! method_field('DELETE') !!}
