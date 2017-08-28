@@ -11,11 +11,11 @@
     <form action="{{ action('PostsController@store')}}" method="POST">
       {!! csrf_field() !!}
       <label for="title">Title</label>
-      <input type="text" class="form-control" id="title" name="title" placeholder="{{ old('title') }}" value="{{ old('title') }}">
+      <input type="text" class="form-control" id="title" name="title" placeholder="Post Title" value="{{ old('title') }}">
       <label for="url">URL</label>
-      <input type="text" class="form-control" id="url" name="url" placeholder="{{ old('url') }}" value="{{ old('url') }}">
+      <input type="text" class="form-control" id="url" name="url" placeholder="Post Link" value="{{ old('url') }}">
       <label for="content">Content</label>
-      <textarea type="textarea" rows="5" class="form-control" id="content" name="content" placeholder="{{ old('content') }}">{{ old('content') }}</textarea>
+      <textarea type="textarea" rows="5" class="form-control" id="content" name="content" placeholder="Enter content for your post...">{{ old('content') }}</textarea>
       <br>
       <button class="btn btn-primary btn-success">Create Post</button>
     </form>
