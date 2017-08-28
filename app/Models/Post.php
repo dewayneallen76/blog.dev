@@ -10,7 +10,7 @@ class Post extends Model
 
   public static $rules = [
     'title' => 'required|min:2|max:100',
-    'url' => 'required',
+    'url' => 'required|url',
     'content' => 'required'
   ];
 }
