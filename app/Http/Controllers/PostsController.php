@@ -38,6 +38,8 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
+      $this->validate($request, \App\Models\Post::$rules);
+
       $post = new \App\Models\Post();
       $post->created_by = 1;
       $post->title = $request->title;
@@ -103,7 +105,7 @@ class PostsController extends Controller
     {
       $post = \App\Models\Post::find($id);
       $post->delete();
-      
+
       return redirect()->action('PostsController@index');
     }
 }
