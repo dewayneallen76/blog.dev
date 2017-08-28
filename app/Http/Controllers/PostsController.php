@@ -56,7 +56,7 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-      $data['post'] = \App\Models\Post::find(1);
+      $data['post'] = \App\Models\Post::find($id);
 
       return view('posts/show', $data);
     }
