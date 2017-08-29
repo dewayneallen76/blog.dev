@@ -9,7 +9,10 @@
         <a class="nav-link" href="{{ action('PostsController@index') }}">All Posts</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Login</a>
+        <a class="nav-link" href="/auth/login">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/auth/register">Register</a>
       </li>
     </ul>
   </div>
