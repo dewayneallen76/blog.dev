@@ -14,6 +14,9 @@
       <li class="nav-item">
         <a class="nav-link" href="/auth/register">Register</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ action('Auth\AuthController@getLogout') }}">Logout</a>
+      </li>
     </ul>
   </div>
 </nav>
