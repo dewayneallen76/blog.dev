@@ -8,6 +8,8 @@ use App\Models\Post;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Log;
+
 class PostsController extends Controller
 {
     /**
@@ -50,6 +52,8 @@ class PostsController extends Controller
 
       $request->session()->flash('successMessage', 'Post created successfully');
 
+      Log::info("Post created " . $post);
+
       return redirect()->action('PostsController@index');
     }
 
@@ -63,6 +67,11 @@ class PostsController extends Controller
     {
       $data['post'] = Post::find($id);
 
+      if(!$data['post']) {
+        Log::error("Post with id of $id not found");
+        abort(404);
+      }
+
       return view('posts/show', $data);
     }
 
@@ -74,7 +83,13 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-      $data['post'] = Post::find($id);
+      $data['post'] = Post::findOrFail($id);
+
+      if(!$data['post']) {
+        Log::error("Post with id of $id not found");
+        abort(404);
+      }
+
       return view('/posts/edit', $data);
     }
 
@@ -87,11 +102,16 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $post = Post::find($id);
+      $post = Post::findOrFail($id);
       $post->title = $request->title;
       $post->url = $request->url;
       $post->content = $request->content;
       $post->created_by = 1;
+
+      if(!$post) {
+        Log::error("Post with id of $id not found");
+        abort(404);
+      }
 
       $post->save();
 
@@ -109,6 +129,12 @@ class PostsController extends Controller
     public function destroy(Request $request, $id)
     {
       $post = Post::find($id);
+
+      if(!$post) {
+        Log::error("Post with id of $id not found");
+        abort(404);
+      }
+
       $post->delete();
 
       $request->session()->flash('errorMessage', 'Post deleted');
