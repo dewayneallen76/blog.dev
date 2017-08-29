@@ -11,11 +11,11 @@
     <form action="{{ action('PostsController@update', $post->id) }}" method="POST">
       {!! csrf_field() !!}
       <label for="title">Title</label>
-      <input type="text" class="form-control" id="title" name="title" placeholder="{{ $post->title }}">
+      <input type="text" class="form-control" id="title" name="title" placeholder="{{ $post->title }}" value="{{ $post->title }}">
       <label for="url">URL</label>
-      <input type="text" class="form-control" id="url" name="url" placeholder="{{ $post->url }}">
+      <input type="text" class="form-control" id="url" name="url" placeholder="{{ $post->url }}" value="{{ $post->url }}">
       <label for="content">Content</label>
-      <textarea type="textarea" rows="5" class="form-control" id="content" name="content" placeholder="{{ $post->content }}"></textarea>
+      <textarea type="textarea" rows="5" class="form-control" id="content" name="content" placeholder="{{ $post->content }}">{{ $post->content}}</textarea>
       <br>
       <button class="btn btn-primary btn-success">Edit Post</button>
       {!! method_field('PUT') !!}
