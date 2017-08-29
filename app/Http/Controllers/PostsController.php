@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Post;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -16,7 +17,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-      $data['posts'] =  \App\Models\Post::paginate(6);
+      $data['posts'] = Post::paginate(6);
       return view('/posts/index', $data);
     }
 
@@ -38,9 +39,9 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-      $this->validate($request, \App\Models\Post::$rules);
+      $this->validate($request, Post::$rules);
 
-      $post = new \App\Models\Post();
+      $post = new Post();
       $post->created_by = 1;
       $post->title = $request->title;
       $post->url = $request->url;
@@ -60,7 +61,7 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-      $data['post'] = \App\Models\Post::find($id);
+      $data['post'] = Post::find($id);
 
       return view('posts/show', $data);
     }
@@ -73,7 +74,7 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-      $data['post'] = \App\Models\Post::find($id);
+      $data['post'] = Post::find($id);
       return view('/posts/edit', $data);
     }
 
@@ -86,7 +87,7 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $post = \App\Models\Post::find($id);
+      $post = Post::find($id);
       $post->title = $request->title;
       $post->url = $request->url;
       $post->content = $request->content;
@@ -107,7 +108,7 @@ class PostsController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-      $post = \App\Models\Post::find($id);
+      $post = Post::find($id);
       $post->delete();
 
       $request->session()->flash('errorMessage', 'Post deleted');
