@@ -5,10 +5,21 @@
 @stop
 
 @section('content')
+  <br>
+  <br>
   <div class="container">
-    <h1>{{ $post->title }}</h1>
-    <h2>{{ $post->url }}</h2>
+    <div class="row">
+      <div class="col">
+        <h1>{{ $post->title }}</h1>
+        <h2>{{ $post->url }}</h2>
+      </div>
+      <div class="col">
+        <br>
+        <h6 class="text-muted">Created: {{ $post->created_at->diffForHumans() }}</h6>
+        <h6 class="text-muted">Updated: {{ $post->updated_at->diffForHumans() }}</h6>
+      </div>
+    </div>
     <p>{{ $post->content }}</p>
-    <a href="/posts/{{ $post->id }}/edit" class="btn btn-primary btn active" method="POST">Edit Post</a>
+    <a href="{{ action('PostsController@edit', $post->id) }}" class="btn btn-primary btn active">Edit Post</a>
   </div>
 @stop
