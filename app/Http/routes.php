@@ -24,7 +24,7 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 
 // Miscellaneous routes for exercises
-Route::get('/', 'HomeController@showWelcome');
+Route::get('/', 'PostsController@index');
 
 Route::get('/sayhello/{name}', 'HomeController@sayHello');
 
