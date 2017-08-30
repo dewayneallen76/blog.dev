@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Post;
 use App\Models\BaseModel;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
