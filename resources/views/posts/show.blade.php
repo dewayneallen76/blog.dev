@@ -16,8 +16,8 @@
       <div class="col">
         <br>
         <h5 class="text-right">Added by: {{ $post->user->name }}</h5>
-        <h6 class="text-muted text-right">Created: {{ $post->created_at->diffForHumans() }}</h6>
-        <h6 class="text-muted text-right">Updated: {{ $post->updated_at->diffForHumans() }}</h6>
+        <h6 class="text-muted text-right">Created: {{ $post->created_at }}</h6>
+        <h6 class="text-muted text-right">Updated: {{ $post->updated_at }}</h6>
       </div>
     </div>
     <p>{{ $post->content }}</p>

@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
-use BaseModel;
+use App\Models\BaseModel;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Post extends BaseModel
 {
   protected $table = 'posts';
 
