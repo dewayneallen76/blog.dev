@@ -19,4 +19,11 @@
     </div>
   </div>
 </div>
+<div class="container">
+  @foreach($users->posts as $post)
+  <h1>{{ $post->title }}</h1>
+  <h2>{{ $post->url }}</h2>
+  <p>{{ $post->content }}</p>
+  @endforeach
+</div>
 @stop
