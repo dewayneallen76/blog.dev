@@ -16,7 +16,7 @@
           <h4 class="card-title">{{ $post->title}}</h4>
           <p class="card-text">{{ $post->created_at->diffForHumans() }}</p>
           <p class="card-text" style="max-height: 150px; overflow:hidden;">{{ $post->content }}</p>
-          <a class="btn btn-primary" href="{{ action('PostsController@show', $post->id) }}">Read More</a>
+          <a class="btn btn-primary" href="{{ action('PostsController@show', $post->id) }}">View Post</a>
         </div>
       </div>
       <br>
