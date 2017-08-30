@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\User;
 use App\Models\Post;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Auth\AuthController;
 
 use Log;
 
@@ -44,7 +46,7 @@ class PostsController extends Controller
       $this->validate($request, Post::$rules);
 
       $post = new Post();
-      $post->created_by = 1;
+      $post->created_by = $request->user()->id;
       $post->title = $request->title;
       $post->url = $request->url;
       $post->content = $request->content;

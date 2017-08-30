@@ -6,6 +6,7 @@
 
 @section('content')
 <div class="container">
+  @if(Auth::check())
   <h2>Create a new post</h2>
   <div class="form-group">
     <form action="{{ action('PostsController@store')}}" method="POST">
@@ -23,6 +24,12 @@
       <button class="btn btn-primary btn-success">Create Post</button>
     </form>
   </div>
+  @else
+  <div class="container">
+    <h1 class="text-center">You must be logged in to create a post!</h1>
+    <h1 class="text-center">Please <a href="/auth/login">Login</a> or <a href="/auth/register">Register</a></h1>
+  </div>
+  @endif
 </div>
 
 @stop
