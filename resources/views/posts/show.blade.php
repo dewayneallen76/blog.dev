@@ -21,6 +21,8 @@
       </div>
     </div>
     <p>{{ $post->content }}</p>
+    @if(Auth::id() == $post->created_by)
     <a href="{{ action('PostsController@edit', $post->id) }}" class="btn btn-primary btn active">Edit Post</a>
+    @endif
   </div>
 @stop
