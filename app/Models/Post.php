@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\User;
 use App\Models\BaseModel;
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,8 +12,13 @@ class Post extends BaseModel
 
   public function user()
 	{
-		return $this->belongsTo('App\User', 'created_by', 'id');
+		return $this->belongsTo('App\User', 'created_by');
 	}
+
+  public function votes()
+  {
+    return $this->hasMany('App\Models\Vote', 'vote_id');
+  }
 
   public static $rules = [
     'title' => 'required|min:2|max:100',

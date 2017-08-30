@@ -38,4 +38,14 @@ class User extends BaseModel implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    public function posts()
+    {
+      return $this->hasMany('App\Models\Post', 'created_by');
+    }
+
+    public function votes()
+    {
+      return $this->hasMany('App\Models\Vote', 'vote_id');
+    }
 }
