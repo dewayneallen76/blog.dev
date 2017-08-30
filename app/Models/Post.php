@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use BaseModel;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model

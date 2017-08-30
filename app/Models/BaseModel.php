@@ -7,13 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class BaseModel extends Model
 {
-  public function getCreatedAtAttributes($value)
+  public function getCreatedAtAttribute($value)
 	{
 		$utc = \Carbon\Carbon::createFromFormat($this->getDateFormat(), $value);
         return $utc->setTimezone('America/Chicago');
 	}
 
-	public function getUpdatedAtAttributes($value)
+	public function getUpdatedAtAttribute($value)
 	{
 		$utc = \Carbon\Carbon::createFromFormat($this->getDateFormat(), $value);
         return $utc->setTimezone('America/Chicago');
@@ -21,6 +21,6 @@ class BaseModel extends Model
 
   public function setPasswordAttribute($value)
 	{
-    	$this->attributes['password'] = Hash::make($value);
+    	$this->attributes['password'] = \Hash::make($value);
 	}
 }

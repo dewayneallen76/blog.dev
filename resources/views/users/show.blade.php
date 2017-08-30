@@ -15,7 +15,7 @@
       <h4>Email: {{ $users->email }}</h4>
     </div>
     <div class="col">
-      <h4 class="text-right">Member since: {{ $users->created_at->diffForHumans() }}</h4>
+      <h4 class="text-right">Member since: {{ $users->created_at }}</h4>
     </div>
   </div>
 </div>

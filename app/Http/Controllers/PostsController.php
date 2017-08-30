@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\User;
 use App\Models\Post;
+use App\Models\BaseModel;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Auth\AuthController;
