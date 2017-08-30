@@ -8,12 +8,21 @@
       <li class="nav-item">
         <a class="nav-link" href="{{ action('PostsController@index') }}">All Posts</a>
       </li>
+      @if(Auth::check())
+      <li class="nav-item">
+        <a class="nav-link" href="#">Welcome {{ Auth::user()->name }}!</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ action('PostsController@create') }}">Create a Post</a>
+      </li>
+      @else
       <li class="nav-item">
         <a class="nav-link" href="/auth/login">Login</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/auth/register">Register</a>
       </li>
+      @endif
       <li class="nav-item">
         <a class="nav-link" href="{{ action('Auth\AuthController@getLogout') }}">Logout</a>
       </li>
