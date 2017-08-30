@@ -10,7 +10,7 @@
       </li>
       @if(Auth::check())
       <li class="nav-item">
-        <a class="nav-link" href="#">Welcome {{ Auth::user()->name }}!</a>
+        <a class="nav-link" href="{{ action('UsersController@show', Auth::id()) }}">Welcome {{ Auth::user()->name }}!</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{ action('PostsController@create') }}">Create a Post</a>
