@@ -24,9 +24,17 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-      $data['posts'] = Post::with('user')->paginate(6);
+      if($request->has('search')) {
+        $data['posts'] = Post::join('users', 'created_by', '=', 'users.id')
+          ->where('title', 'LIKE', "%$request->search%")
+          ->orWhere('name', 'LIKE', "%$request->search%")
+          ->orderBy('created_by', 'ASC')
+          ->paginate(6);
+      } else {
+        $data['posts'] = Post::with('user')->orderBy('created_at', 'desc')->paginate(6);
+      }
       return view('/posts/index', $data);
     }
 
