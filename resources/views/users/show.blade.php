@@ -24,7 +24,11 @@
 </div>
 <div class="container">
   <hr>
-  <h1 class="text-center">My Posts</h1>
+  @if(Auth::id() == $users->id)
+  <h1 class="text-center">Your Posts</h1>
+  @else
+  <h1 class="text-center">Users Posts</h1>
+  @endif
   <div class="row">
     @foreach($users->posts as $post)
     <div class="col">
