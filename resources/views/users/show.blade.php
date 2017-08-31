@@ -20,6 +20,7 @@
   </div>
 </div>
 <div class="container">
+  <hr>
   <h1 class="text-center">My Posts</h1>
   <div class="row">
     @foreach($users->posts as $post)
