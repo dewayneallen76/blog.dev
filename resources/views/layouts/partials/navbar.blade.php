@@ -26,6 +26,11 @@
       <li class="nav-item">
         <a class="nav-link" href="{{ action('PostsController@index') }}">All Posts</a>
       </li>
+      @if(Auth::check())
+      <li class="nav-item">
+        <a class="nav-link" href="{{ action('UsersController@index') }}">All Users</a>
+      </li>
+      @endif
     </ul>
     <form class="form-inline my-2 my-lg-0" action="{{ action('PostsController@index') }}">
       <input class="form-control mr-sm-2" type="text" name="search" placeholder="Search" aria-label="Search">
