@@ -16,6 +16,9 @@
     </div>
     <div class="col">
       <h4 class="text-muted text-right">Member since: {{ $users->created_at }}</h4>
+      @if(Auth::id() == $users->id)
+      <h4 class="text-right"><a href="#">Edit User</a></h4>
+      @endif
     </div>
   </div>
 </div>
