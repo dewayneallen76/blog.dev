@@ -24,7 +24,7 @@
     @endforeach
   </div>
   <div class="text-center">
-    {!! $posts->render() !!}
+
   </div>
 </div>
 @stop

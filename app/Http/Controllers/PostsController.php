@@ -27,11 +27,7 @@ class PostsController extends Controller
     public function index(Request $request)
     {
       if($request->has('search')) {
-        $data['posts'] = Post::join('users', 'created_by', '=', 'users.id')
-          ->where('title', 'LIKE', "%$request->search%")
-          ->orWhere('name', 'LIKE', "%$request->search%")
-          ->orderBy('created_by', 'ASC')
-          ->paginate(6);
+        $data['posts'] = Post::search($request->search);
       } else {
         $data['posts'] = Post::with('user')->orderBy('created_at', 'DESC')->paginate(6);
       }

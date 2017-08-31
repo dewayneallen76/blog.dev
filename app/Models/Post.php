@@ -10,6 +10,12 @@ class Post extends BaseModel
 {
   protected $table = 'posts';
 
+  public static $rules = [
+    'title' => 'required|min:2|max:100',
+    'url' => 'required|url',
+    'content' => 'required'
+  ];
+
   public function user()
 	{
 		return $this->belongsTo('App\User', 'created_by');
@@ -20,9 +26,10 @@ class Post extends BaseModel
     return $this->hasMany('App\Models\Vote', 'vote_id');
   }
 
-  public static $rules = [
-    'title' => 'required|min:2|max:100',
-    'url' => 'required|url',
-    'content' => 'required'
-  ];
+  public static function search($q)
+  {
+    $posts = Post::where('title', 'LIKE', '%' . $q . '%')->get();
+    return $posts;
+  }
+
 }
