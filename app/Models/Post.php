@@ -26,9 +26,13 @@ class Post extends BaseModel
     return $this->hasMany('App\Models\Vote', 'vote_id');
   }
 
-  public static function search($q)
+  public static function search($search)
   {
-    $posts = Post::where('title', 'LIKE', '%' . $q . '%')->get();
+    $posts = Post::with('user')
+                    ->where('title', 'LIKE', '%' . $search . '%')
+                    ->orWhere('content', 'LIKE', '%' . $search . '%')
+                    ->orderBy('created_at', 'DESC')
+                    ->get();
     return $posts;
   }
 
