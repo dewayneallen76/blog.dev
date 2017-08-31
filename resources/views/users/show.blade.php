@@ -25,7 +25,7 @@
 <div class="container">
   <hr>
   @if(Auth::id() == $users->id)
-  <h1 class="text-center">Your Posts</h1>
+  <h1 class="text-center">My Posts</h1>
   @else
   <h1 class="text-center">Users Posts</h1>
   @endif
