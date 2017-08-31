@@ -33,7 +33,7 @@ class PostsController extends Controller
           ->orderBy('created_by', 'ASC')
           ->paginate(6);
       } else {
-        $data['posts'] = Post::with('user')->orderBy('created_at', 'ASC')->paginate(6);
+        $data['posts'] = Post::with('user')->orderBy('created_at', 'DESC')->paginate(6);
       }
       return view('/posts/index', $data);
     }
