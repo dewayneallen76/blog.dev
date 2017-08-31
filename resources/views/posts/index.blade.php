@@ -24,7 +24,6 @@
     @endforeach
   </div>
   <div class="text-center">
-
   </div>
 </div>
 @stop
