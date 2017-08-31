@@ -16,6 +16,7 @@
       <p class="text-right">{{ $user->email }}</p>
     </div>
   </div>
+  <hr>
   @endforeach
 </div>
 
