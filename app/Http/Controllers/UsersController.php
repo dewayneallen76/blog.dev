@@ -17,9 +17,10 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+      $data['users'] = User::with('posts')->get();
+      return view('users/index', $data);
     }
 
     /**
