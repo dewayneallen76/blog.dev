@@ -65,7 +65,8 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-      return view('users/edit');
+      $data['users'] = User::find($id);
+      return view('/users/edit', $data);
     }
 
     /**
@@ -77,7 +78,25 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+      $rules = [
+        'name' => 'required|min:5',
+        'email' => 'required',
+        'password' => 'required',
+        'password_confirmation' => 'required|same:password',
+      ];
+
+      $this->validate($request, $rules);
+
+      $user = User::findOrFail($id);
+      $user->name = $request->name;
+      $user->email = $request->email;
+      $user->password = \Hash::make($request->password);
+      $user->save();
+
+      $request->session()->flash('SUCCESS_MESSAGE', 'User updated successfully');
+
+      return redirect()->action('UsersController@show', $user->id);
     }
 
     /**
