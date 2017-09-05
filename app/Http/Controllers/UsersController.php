@@ -65,7 +65,8 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-      $data['users'] = User::find($id);
+      $data['users'] = User::findOrFail($id);
+
       return view('/users/edit', $data);
     }
 
@@ -78,20 +79,10 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-      $rules = [
-        'name' => 'required|min:5',
-        'email' => 'required',
-        'password' => 'required',
-        'password_confirmation' => 'required|same:password',
-      ];
-
-      $this->validate($request, $rules);
-
       $user = User::findOrFail($id);
       $user->name = $request->name;
       $user->email = $request->email;
-      $user->password = \Hash::make($request->password);
+      $user->password = $request->password;
       $user->save();
 
       $request->session()->flash('SUCCESS_MESSAGE', 'User updated successfully');
@@ -107,6 +98,9 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $user = User::findOrFail($id);
+      $user->delete();
+
+      return redirect()->action('UsersController@index');
     }
 }

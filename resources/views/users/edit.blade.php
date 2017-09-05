@@ -20,7 +20,7 @@
         </div>
       @endif
       <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" name="password" placeholder="{{ $users->password }}" value="{{ $users->password }}">
+      <input type="password" class="form-control" id="password" name="password">
       @if($errors->has('password'))
         <div class="alert alert-danger">
           {{ $errors->first('password_confirmation') }}
