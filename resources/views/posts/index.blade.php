@@ -23,6 +23,6 @@
     </div>
     @endforeach
   </div>
-
+  {!! $posts->appends(['search' => Input::get('search')])->render() !!}
 </div>
 @stop
