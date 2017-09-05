@@ -26,11 +26,12 @@ class PostsController extends Controller
      */
     public function index(Request $request)
     {
+      $data['posts'] = Post::with('user')->orderBy('created_at', 'DESC')->paginate(6);
+
       if($request->has('search')) {
-        $data['posts'] = Post::search($request->search);
-      } else {
-        $data['posts'] = Post::with('user')->orderBy('created_at', 'DESC')->paginate(6);
+        $data['posts'] = Post::search($request->search)->paginate(6);
       }
+      
       return view('/posts/index', $data);
     }
 
