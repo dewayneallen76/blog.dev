@@ -29,11 +29,13 @@ class Post extends BaseModel
   public static function search($search)
   {
     $posts = Post::with('user')
-                    ->where('title', 'LIKE', '%' . $search . '%')
-                    ->orWhere('content', 'LIKE', '%' . $search . '%')
-                    ->orderBy('created_at', 'DESC')
-                    ->get();
-    return $posts;
+                    ->where('title', 'LIKE', "%search%")
+                    ->orWhere('content', 'LIKE', "%search%")
+                    ->orWhere('url', 'LIKE', "%search%")
+                    ->orderBy('updated_at', 'DESC');
+
+    $data['posts'] = $posts;
+    return $data;
   }
 
 }
